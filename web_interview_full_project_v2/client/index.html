@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Interview Recorder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎥 Web Interview Recorder</h1>
+
+    <div id="start-section">
+      <input type="text" id="token" placeholder="Enter Token" />
+      <input type="text" id="username" placeholder="Enter Your Name" />
+      <button id="start-btn">Start Session</button>
+      <p id="status"></p>
+    </div>
+
+    <div id="record-section" class="hidden">
+      <h2 id="question"></h2>
+      <video id="preview" autoplay muted></video>
+      <div class="controls">
+        <button id="record-btn">Start Recording</button>
+        <button id="next-btn" disabled>Next Question</button>
+        <button id="finish-btn">Finish</button>
+      </div>
+      <p id="upload-status"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
