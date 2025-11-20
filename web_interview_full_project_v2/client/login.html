@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – Web Interview Recorder</title>
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="dark">
+  <!-- THEME TOGGLE BUTTON -->
+  <button id="theme-toggle" class="theme-toggle">
+    <img id="theme-icon" src="moon.png" alt="theme icon">
+</button>
+
+  <div class="login-page">
+
+    <div class="login-left">
+      <h1 class="app-title">WEB INTERVIEW RECORDER</h1>
+
+      <p class="subtitle">Token</p>
+      <input type="text" id="token" placeholder="Enter interview token" class="input-field">
+
+      <p class="subtitle">Name</p>
+      <input type="text" id="username" placeholder="Enter full name" class="input-field">
+
+      <button id="start-session" class="primary-btn">Start Session</button>
+      <p id="login-status" class="status-text"></p>
+    </div>
+
+    <div class="login-right">
+      <img src="techboy.png" class="login-illustration">
+    </div>
+
+  </div>
+
+  <script src="script_login.js"></script>
+</body>
+</html>
