@@ -1,10 +1,10 @@
-import { Routes, Route } from 'react-router-dom'
-import LoginPage from '../features/auth/loginPage'
-import PreviewPage from '../features/preview/PreviewPage'
-import InterviewPage from '../features/interview/InterviewPage'
-import InstructionsPage from '../features/interview/InstructionsPage'
-import FinishPage from '../features/finish/FinishPage'
-import { SessionProvider } from '../features/session/SessionContext'
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "../features/auth/loginPage";
+import PreviewPage from "../features/preview/PreviewPage";
+import InterviewPage from "../features/interview/InterviewPage";
+import InstructionsPage from "../features/interview/InstructionsPage";
+import FinishPage from "../features/finish/FinishPage";
+import { SessionProvider } from "../features/session/SessionContext";
 
 export default function App() {
   return (
@@ -17,5 +17,5 @@ export default function App() {
         <Route path="/finish" element={<FinishPage />} />
       </Routes>
     </SessionProvider>
-  )
+  );
 }

@@ -17,7 +17,7 @@
   --text: #111111;
   --muted: #8b8b8b;
   --accent: #b42727; /* deep red used in design */
-  --accent-2: #a3221d;
+  --accent-2: #801a1a;
   --form-width: 520px; /* wider inputs to match design */
   --input-border: rgba(185, 43, 35, 0.12);
   --input-bg: #ffffff;
@@ -253,7 +253,7 @@ body.theme-dark h2.login-title {
   border: none;
   color: white;
   font-weight: 400;
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  background: var(--accent);
   cursor: pointer;
   font-size: 20px;
   transition: opacity 0.18s ease, transform 0.18s ease;
@@ -279,7 +279,7 @@ body.theme-dark h2.login-title {
 /* Preview modal */
 .preview-screen {
   min-height: 100vh;
-  background: linear-gradient(120deg, #eef2ff, #ffffff);
+  background: #fdfdf3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,7 +298,7 @@ body.theme-dark .preview-screen {
   padding: 24px 40px;
 }
 .preview-topbar .logo {
-  color: var(--primary);
+  color: var(--accent);
 }
 body.theme-dark .preview-topbar .logo {
   color: #ffffff;
@@ -398,8 +398,9 @@ body.theme-dark .preview-btn.secondary {
   color: #f8fafc;
 }
 .preview-btn.primary {
-  background: var(--primary);
+  background: var(--accent);
   color: #fff;
+  padding: 0 20px 0 20px;
 }
 .preview-btn:hover {
   transform: translateY(-1px);
