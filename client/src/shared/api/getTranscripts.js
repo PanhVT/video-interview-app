@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../config/api.config';
+
 /**
  * API functions để lấy transcripts
  */
@@ -8,7 +10,7 @@
  * @returns {Promise<Object>} Response với transcripts
  */
 export async function getTranscripts(folder) {
-  const res = await fetch(`http://localhost:8000/api/transcripts/${folder}`);
+  const res = await fetch(`${API_BASE_URL}/api/transcripts/${folder}`);
   if (!res.ok) {
     const error = await res.json().catch(() => ({ detail: 'Failed to fetch transcripts' }));
     throw new Error(error.detail || 'Failed to fetch transcripts');
@@ -23,7 +25,7 @@ export async function getTranscripts(folder) {
  * @returns {Promise<Object>} Response với transcript
  */
 export async function getTranscript(folder, questionIndex) {
-  const res = await fetch(`http://localhost:8000/api/transcripts/${folder}/${questionIndex}`);
+  const res = await fetch(`${API_BASE_URL}/api/transcripts/${folder}/${questionIndex}`);
   if (!res.ok) {
     const error = await res.json().catch(() => ({ detail: 'Failed to fetch transcript' }));
     throw new Error(error.detail || 'Failed to fetch transcript');
@@ -36,7 +38,7 @@ export async function getTranscript(folder, questionIndex) {
  * @returns {Promise<Object>} Response với danh sách sessions
  */
 export async function listAllSessions() {
-  const res = await fetch(`http://localhost:8000/api/transcripts`);
+  const res = await fetch(`${API_BASE_URL}/api/transcripts`);
   if (!res.ok) {
     const error = await res.json().catch(() => ({ detail: 'Failed to list sessions' }));
     throw new Error(error.detail || 'Failed to list sessions');
