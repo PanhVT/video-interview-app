@@ -1,0 +1,50 @@
+Interview Transcripts - Anhh
+Folder: 05_12_2025_00_18_Anhh
+Date: 2025-12-05T00:22:00.507323
+============================================================
+
+Question 1:
+------------------------------------------------------------
+I'm a data science student with strong experience in Python. And data analysis. I enjoy working with rare word data sets and solving problems through analytics and logical
+
+Confidence: 50.58%
+Created: 2025-12-05T10:17:18.060910
+
+============================================================
+
+Question 2:
+------------------------------------------------------------
+I'm excited about this role because it relies on my skills in data releases and gives me the opportunity to learn, grow and contribute to many fun projects.
+
+Confidence: 67.06%
+Created: 2025-12-05T10:17:20.934747
+
+============================================================
+
+Question 3:
+------------------------------------------------------------
+In a recent project analyzing Spotify's streaming data, I face messy and inconsistent data. I handle it by cleaning, validating, and restructuring the dataset, then using Python to extract insights. This improves the accuracy of the final analysis.
+
+Confidence: 57.90%
+Created: 2025-12-05T10:17:26.185474
+
+============================================================
+
+Question 4:
+------------------------------------------------------------
+I communicate clearly, listen actively, and support me when needed, comfortable taking responsibility for my tasks while collaborating to ensure the whole team succeed.
+
+Confidence: 57.56%
+Created: 2025-12-05T10:17:29.261710
+
+============================================================
+
+Question 5:
+------------------------------------------------------------
+Yes, could you share more about the team I would be working with and what success looks like in the first few months of this role?
+
+Confidence: 77.15%
+Created: 2025-12-05T10:17:33.236377
+
+============================================================
+

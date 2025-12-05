@@ -1,0 +1,41 @@
+{
+  "userName": "Manhh",
+  "uploadedAt": "2025-12-05T16:57:00.258879",
+  "timeZone": "Asia/Bangkok",
+  "receivedQuestions": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "finishedAt": "2025-12-05T16:57:01.470403",
+  "questionsCount": 5,
+  "transcripts": {
+    "1": {
+      "text": "I'm a data science student with hands-on experience in Python and data analysis projects. I enjoy solving problems with data and continuously learning new technologies.",
+      "confidence": 0.7764694213867187,
+      "createdAt": "2025-12-05T17:43:42.511352"
+    },
+    "2": {
+      "text": "I'm interested in this role because it aligns with my skills in data science and I want to apply what I've learned to real projects by growing professionally.",
+      "confidence": 0.7682209014892578,
+      "createdAt": "2025-12-05T17:44:48.626207"
+    },
+    "3": {
+      "text": "I worked on the data analysis project where the data sets are messy and inconsistent. I handle it by cleaning the data step by step, writing Python scripts to automate, reprocessing, and validating the results carefully. The final model performed well.",
+      "confidence": 0.7262890702587064,
+      "createdAt": "2025-12-05T17:46:15.393170"
+    },
+    "4": {
+      "text": "I communicate clearly, share progress frequently, and support teammates when needed. I also listen to other ideas and try to keep to organize and efficient.",
+      "confidence": 0.7228838976691752,
+      "createdAt": "2025-12-05T17:47:23.416848"
+    },
+    "5": {
+      "text": "Yes, could you tell me more about the team I would be working with and what a typical day in this role looks like?",
+      "confidence": 0.7549475085350775,
+      "createdAt": "2025-12-05T17:48:30.567915"
+    }
+  }
+}

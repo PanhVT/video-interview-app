@@ -1,0 +1,50 @@
+Interview Transcripts - Manhh
+Folder: 05_12_2025_16_55_Manhh
+Date: 2025-12-05T16:57:00.258879
+============================================================
+
+Question 1:
+------------------------------------------------------------
+I'm a data science student with hands-on experience in Python and data analysis projects. I enjoy solving problems with data and continuously learning new technologies.
+
+Confidence: 77.65%
+Created: 2025-12-05T17:43:42.511352
+
+============================================================
+
+Question 2:
+------------------------------------------------------------
+I'm interested in this role because it aligns with my skills in data science and I want to apply what I've learned to real projects by growing professionally.
+
+Confidence: 76.82%
+Created: 2025-12-05T17:44:48.626207
+
+============================================================
+
+Question 3:
+------------------------------------------------------------
+I worked on the data analysis project where the data sets are messy and inconsistent. I handle it by cleaning the data step by step, writing Python scripts to automate, reprocessing, and validating the results carefully. The final model performed well.
+
+Confidence: 72.63%
+Created: 2025-12-05T17:46:15.393170
+
+============================================================
+
+Question 4:
+------------------------------------------------------------
+I communicate clearly, share progress frequently, and support teammates when needed. I also listen to other ideas and try to keep to organize and efficient.
+
+Confidence: 72.29%
+Created: 2025-12-05T17:47:23.416848
+
+============================================================
+
+Question 5:
+------------------------------------------------------------
+Yes, could you tell me more about the team I would be working with and what a typical day in this role looks like?
+
+Confidence: 75.49%
+Created: 2025-12-05T17:48:30.567915
+
+============================================================
+
