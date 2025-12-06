@@ -66,7 +66,7 @@ export default function LoginPage() {
 
             <div style={{ marginTop: 18 }}>
               <button className="btn-primary" onClick={onStart}>
-                START SESSION
+                Start Session
               </button>
             </div>
 

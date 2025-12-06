@@ -27,8 +27,7 @@
 
 body {
   margin: 0;
-  font-family: "Prosto One", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
+  font-family: sans-serif;
   background: var(--bg);
   color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -190,7 +189,7 @@ body.theme-dark h2.login-title {
   font-size: 60px;
   letter-spacing: 2px;
   margin: 0 0 30px 0;
-  font-weight: 400;
+  font-weight: 200;
   text-transform: uppercase;
   color: var(--accent);
   transition: color 0.3s ease;
@@ -208,7 +207,7 @@ body.theme-dark h2.login-title {
   color: var(--text);
   transition: color 0.3s ease;
   font-size: 13px;
-  font-family: "Oswald", sans-serif;
+  /* font-family: "Oswald", sans-serif; */
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -225,13 +224,13 @@ body.theme-dark h2.login-title {
   box-sizing: border-box;
   transition: border-color 0.2s ease, background-color 0.2s ease,
     color 0.2s ease;
-  font-family: "Prosto One", sans-serif;
-  font-weight: 400;
+  /* font-family: "Prosto One"; */
+  font-weight: 600;
   letter-spacing: 0.4px;
 }
 .field input::placeholder {
   color: var(--muted);
-  font-family: "Prosto One", sans-serif;
+  /* font-family: "Prosto One", sans-serif; */
 }
 .field input:focus {
   border-color: var(--accent);
@@ -743,7 +742,7 @@ body.theme-dark .prompt-card {
 .center-box {
   position: relative;
   z-index: 10;
-  width: 45%;
+  width: 47%;
   margin: 0 auto;
   margin-top: 12%;
   padding: 60px 40px;
@@ -754,9 +753,10 @@ body.theme-dark .prompt-card {
 
 .finish-title {
   text-align: center;
+  letter-spacing: 2px;
   margin: 0 0 8px;
   font-size: 60px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--accent);
   font-family: "American Purpose";
 }
@@ -771,9 +771,9 @@ body.theme-dark .prompt-card {
   width: 70%;
   padding: 20px 30px;
   border-radius: 26px;
-  background: var(--accent);
+  background: #e6e6e6;
   border: 1px solid rgba(55, 81, 254, 0.18);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 body.theme-dark .finish-meta {
   background: rgba(15, 23, 42, 0.7);
@@ -784,14 +784,14 @@ body.theme-dark .finish-meta {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #ffffff;
+  color: var(--text);
   font-weight: 700;
   margin-bottom: 4px;
 }
 .finish-value {
   font-size: 14px;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--text);
 }
 .finish-actions {
   display: flex;
