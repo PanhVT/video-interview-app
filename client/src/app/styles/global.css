@@ -752,6 +752,7 @@ body.theme-dark .prompt-card {
 }
 
 .finish-title {
+  text-align: center;
   margin: 0 0 8px;
   font-size: 60px;
   font-weight: 600;
