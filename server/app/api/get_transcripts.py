@@ -11,11 +11,11 @@ router = APIRouter()
 @router.get('/transcripts/{folder_name}')
 def get_transcripts(folder_name: str):
     """
-    Lấy tất cả transcripts của một session
-    
+    Get all transcripts for a session.
+
     Args:
-        folder_name: Tên folder session (ví dụ: "05_12_2025_00_18_Anhh")
-    
+        folder_name: Session folder name (e.g. "05_12_2025_00_18_Anhh")
+
     Returns:
         {
             "ok": true,
@@ -58,12 +58,12 @@ def get_transcripts(folder_name: str):
 @router.get('/transcripts/{folder_name}/{question_index}')
 def get_transcript(folder_name: str, question_index: int):
     """
-    Lấy transcript của một câu hỏi cụ thể
-    
+    Get the transcript for a specific question.
+
     Args:
-        folder_name: Tên folder session
-        question_index: Số thứ tự câu hỏi (1, 2, 3, ...)
-    
+        folder_name: Session folder name
+        question_index: Question index (1, 2, 3, ...)
+
     Returns:
         {
             "ok": true,
@@ -112,8 +112,8 @@ def get_transcript(folder_name: str, question_index: int):
 @router.get('/transcripts')
 def list_all_sessions():
     """
-    Liệt kê tất cả sessions có transcripts
-    
+    List all sessions that have transcripts.
+
     Returns:
         {
             "ok": true,
@@ -150,7 +150,7 @@ def list_all_sessions():
                     meta = json.load(f)
                 
                 transcripts = meta.get('transcripts', {})
-                if transcripts:  # Chỉ thêm sessions có transcripts
+                if transcripts:  # Only include sessions that have transcripts
                     sessions.append({
                         "folder": folder_name,
                         "userName": meta.get('userName', 'Unknown'),
@@ -160,9 +160,9 @@ def list_all_sessions():
                         "finishedAt": meta.get('finishedAt')
                     })
             except:
-                continue  # Bỏ qua nếu không đọc được
+                continue  # Skip if unreadable
         
-        # Sắp xếp theo uploadedAt (mới nhất trước)
+        # Sort by uploadedAt (newest first)
         sessions.sort(key=lambda x: x.get('uploadedAt', ''), reverse=True)
         
         return {
@@ -177,14 +177,14 @@ def list_all_sessions():
 @router.get('/transcripts/{folder_name}/export')
 def export_transcripts(folder_name: str, format: str = "txt"):
     """
-    Export transcripts ra file và download
-    
+    Export transcripts to a file and return it for download.
+
     Args:
-        folder_name: Tên folder session
-        format: Format file - "txt", "csv", hoặc "json" (default: "txt")
-    
+        folder_name: Session folder name
+        format: File format - "txt", "csv", or "json" (default: "txt")
+
     Returns:
-        File download
+        File download response
     """
     meta_path = os.path.join(BASE, folder_name, 'meta.json')
     
@@ -211,7 +211,7 @@ def export_transcripts(folder_name: str, format: str = "txt"):
         
         try:
             if format == "txt":
-                # Export ra file text
+                # Export to a plain text file
                 with open(temp_path, 'w', encoding='utf-8') as f:
                     f.write(f"Interview Transcripts - {userName}\n")
                     f.write(f"Folder: {folder_name}\n")
@@ -230,7 +230,7 @@ def export_transcripts(folder_name: str, format: str = "txt"):
                 media_type = "text/plain"
             
             elif format == "csv":
-                # Export ra file CSV
+                # Export to a CSV file
                 with open(temp_path, 'w', newline='', encoding='utf-8') as f:
                     writer = csv.writer(f)
                     writer.writerow(['Question', 'Transcript', 'Confidence', 'Created At'])
@@ -247,7 +247,7 @@ def export_transcripts(folder_name: str, format: str = "txt"):
                 media_type = "text/csv"
             
             elif format == "json":
-                # Export ra file JSON
+                # Export to a JSON file
                 export_data = {
                     "userName": userName,
                     "folder": folder_name,
@@ -273,9 +273,9 @@ def export_transcripts(folder_name: str, format: str = "txt"):
                 filename=filename,
                 headers={"Content-Disposition": f"attachment; filename={filename}"}
             )
-        
+
         except Exception as e:
-            # Cleanup temp file nếu có lỗi
+            # Cleanup temp file on error
             if os.path.exists(temp_path):
                 os.unlink(temp_path)
             raise HTTPException(status_code=500, detail=f"Error creating export file: {str(e)}")

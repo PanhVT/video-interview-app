@@ -134,7 +134,7 @@ body.theme-dark .logo {
 
 .topbar .logo .logo-img {
   width: 25px; /* chỉnh tùy ý */
-  height: 25px; /* hoặc auto nếu muốn giữ tỷ lệ */
+  height: 25px; /* or auto if you want to maintain aspect ratio */
   object-fit: contain;
 }
 
