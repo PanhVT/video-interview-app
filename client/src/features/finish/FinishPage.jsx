@@ -8,13 +8,23 @@ export default function FinishPage() {
   const nav = useNavigate();
   const { userName, folder } = useSession();
 
+  function stripDiacriticsAndSpaces(name) {
+    if (!name) return name;
+    // Normalize and remove combining diacritic marks
+    const normalized = name.normalize("NFKD").replace(/\p{Diacritic}/gu, "");
+    // Remove any non-alphanumeric characters (including spaces)
+    return normalized.replace(/[^A-Za-z0-9]/g, "");
+  }
+
   return (
     <div className="finish-screen theme-transition">
       <TopBar />
       <img class="bg-left" src={cat_shop} />
       <img class="bg-right" src={house} />
       <div className="center-box">
-        <h2 className="finish-title">Thank you, {userName || "candidate"}!</h2>
+        <h2 className="finish-title">
+          Thank you, {stripDiacriticsAndSpaces(userName) || "candidate"}!
+        </h2>
         <p className="finish-subtitle">
           Your interview has been successfully completed and stored.
         </p>
