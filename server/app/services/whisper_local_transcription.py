@@ -72,7 +72,7 @@ def extract_audio_from_video(video_path: str, output_audio_path: str) -> bool:
         print(f"⚠️  Error extracting audio: {e}")
         return False
 
-def transcribe_video(video_bytes: bytes, language: str = "vi", model_size: str = "medium", translate_to_english: bool = False) -> dict:
+def transcribe_video(video_bytes: bytes, language: str = "en", model_size: str = "medium", translate_to_english: bool = False) -> dict:
     """
     Transcribe video sử dụng Whisper local (MIỄN PHÍ!)
     

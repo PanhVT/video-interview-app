@@ -54,9 +54,9 @@ async def _transcribe_in_background(folder: str, questions_count: int):
         
         await transcribe_batch_videos(
             video_files,
-            language="vi",
-            translate_to_english=True,
-            model_size="small",
+            language="en",
+            translate_to_english=False,
+            model_size="medium",
             on_progress=on_progress
         )
         
