@@ -63,10 +63,10 @@ export default function PreviewPage() {
         </div>
 
         <div className="preview-actions">
-          <button className="preview-btn secondary" onClick={() => nav("/")}>
+          <button className="btn secondary" onClick={() => nav("/")}>
             Back
           </button>
-          <button className="preview-btn primary" onClick={() => nav("/guide")}>
+          <button className="btn primary" onClick={() => nav("/guide")}>
             Interview Instructions
           </button>
         </div>

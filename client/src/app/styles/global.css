@@ -132,10 +132,6 @@ body.theme-dark .logo {
   color: #ffffff;
 }
 
-body.theme-dark .logo-icon {
-  background: #8b5cf6;
-}
-
 .topbar .logo .logo-img {
   width: 25px; /* chỉnh tùy ý */
   height: 25px; /* hoặc auto nếu muốn giữ tỷ lệ */
@@ -379,7 +375,7 @@ body.theme-dark .preview-window {
   justify-content: flex-end;
   gap: 12px;
 }
-.preview-btn {
+.btn {
   min-width: 120px;
   height: 44px;
   border-radius: 999px;
@@ -389,24 +385,24 @@ body.theme-dark .preview-window {
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
-.preview-btn.secondary {
+.btn.secondary {
   background: rgba(15, 23, 42, 0.05);
   color: var(--text);
 }
-body.theme-dark .preview-btn.secondary {
+body.theme-dark .btn.secondary {
   background: rgba(255, 255, 255, 0.08);
   color: #f8fafc;
 }
-.preview-btn.primary {
+.btn.primary {
   background: var(--accent);
   color: #fff;
   padding: 0 20px 0 20px;
 }
-.preview-btn:hover {
+.btn:hover {
   transform: translateY(-1px);
   opacity: 0.9;
 }
-.preview-btn:active {
+.btn:active {
   transform: translateY(0);
 }
 
@@ -479,7 +475,7 @@ body.theme-dark .preview-btn.secondary {
 /* Interview */
 .interview-start-screen {
   min-height: 100vh;
-  background: #f8fafc;
+  background: #fdfdf3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -504,12 +500,32 @@ body.theme-dark .start-card {
 }
 .interview-screen {
   min-height: 100vh;
-  background: #fdfdff;
+  background: #fdfdf3;
   padding: 50px 24px 40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.bg-left2,
+.bg-right2 {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.bg-left2 {
+  left: -110px;
+  top: -20px;
+  scale: 0.7;
+}
+
+.bg-right2 {
+  top: -25px;
+  right: -109px;
+  scale: 0.6;
 }
 body.theme-dark .interview-screen {
   background: #0d0d10;
@@ -521,6 +537,7 @@ body.theme-dark .interview-screen {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 .interview-content {
   width: calc(100% - 400px);
@@ -537,9 +554,10 @@ body.theme-dark .interview-screen {
 .question-strip {
   display: flex;
   gap: 12px;
-  background: #e6efff;
+  background: #ffffff;
   padding: 8px 18px;
   border-radius: 999px;
+  border: 2px solid #b42727;
   align-items: center;
   box-shadow: 0 10px 25px rgba(55, 81, 254, 0.08);
   flex-shrink: 0;
@@ -562,32 +580,31 @@ body.theme-dark .question-strip {
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .question-pill.active {
-  background: #3751fe;
+  background: #b42727;
   color: #fff;
-  box-shadow: 0 10px 20px rgba(55, 81, 254, 0.4);
 }
 /* done = completed question, lighter than active for readability in light mode */
 .question-pill.done {
-  border-color: #3751fe;
-  color: #6b7bff;
+  border-color: #b42727;
+  color: #b85858;
 }
 body.theme-dark .question-pill {
   color: #f8fafc;
   border-color: rgba(255, 255, 255, 0.2);
 }
 body.theme-dark .question-pill.done {
-  color: #8ea0ff;
-  border-color: #8ea0ff;
+  color: #b42727;
+  border-color: #b42727;
 }
 .prompt-card {
   flex: 1;
   padding: 16px 26px;
   border-radius: 18px;
-  border: 2px solid rgba(55, 81, 254, 0.2);
-  background: #e8f1ff;
+  border: 2px solid #b42727;
+  background: #ffffff;
   color: #0f172a;
   font-weight: 600;
-  box-shadow: 0 15px 35px rgba(55, 81, 254, 0.1);
+  box-shadow: 0 10px 25px rgba(53, 11, 11, 0.08);
 }
 body.theme-dark .prompt-card {
   background: #111827;
@@ -619,15 +636,13 @@ body.theme-dark .prompt-card {
   right: 24px;
   padding: 10px 20px;
   border-radius: 999px;
-  background: #3751fe;
+  background: #b42727;
   color: #fff;
   font-weight: 700;
-  box-shadow: 0 10px 30px rgba(55, 81, 254, 0.4);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 .timer-pill.warning {
   background: #f97316;
-  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
 }
 .uploading-state {
   position: absolute;
@@ -668,7 +683,7 @@ body.theme-dark .prompt-card {
   color: #065f46;
 }
 .upload-banner.success button {
-  background: #3751fe;
+  background: #b42727;
   color: #fff;
 }
 .upload-banner.error {
@@ -700,7 +715,7 @@ body.theme-dark .prompt-card {
   padding: 0 36px;
 }
 .pill-btn.primary {
-  background: #3751fe;
+  background: #b42727;
   color: #fff;
 }
 .pill-btn:disabled {

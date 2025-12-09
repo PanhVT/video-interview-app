@@ -28,7 +28,7 @@ export default function FinishPage() {
 
         <div className="finish-actions">
           <button
-            className="preview-btn primary"
+            className="btn primary"
             type="button"
             onClick={() => nav("/")}
           >
