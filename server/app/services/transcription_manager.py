@@ -21,11 +21,9 @@ def _init_transcription_engine():
     if TRANSCRIBE_AVAILABLE:
         return  # Already initialized
     
-    # Priority: Whisper Local (FREE) > OpenAI API > Google Speech-to-Text
+    # Priority: Whisper Local only (project configured to use local Whisper)
     engines = [
         ('whisper_local_transcription', 'Whisper Local (FREE)'),
-        ('openai_transcription', 'OpenAI Whisper API'),
-        ('speech_transcription', 'Google Speech-to-Text'),
     ]
     
     for module_name, engine_name in engines:
