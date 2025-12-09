@@ -21,7 +21,8 @@ export default function LoginPage() {
       const res = await verifyToken(tokenInput);
       if (res.ok) {
         setToken(tokenInput);
-        setUserName(nameInput);
+        // Do not set userName here; server will return a sanitized username
+        // when the session is started. This avoids showing unsanitized names.
         nav("/preview");
       } else {
         // Hiển thị error message chi tiết hơn

@@ -12,7 +12,14 @@ import black_cat from "../../assets/black_cat.png";
 const MAX_TIME = 120;
 
 export default function InterviewPage() {
-  const { token, userName, folder, setFolder, questions = [] } = useSession();
+  const {
+    token,
+    userName,
+    folder,
+    setFolder,
+    setUserName,
+    questions = [],
+  } = useSession();
   const nav = useNavigate();
 
   const videoRef = useRef(null);
@@ -155,6 +162,8 @@ export default function InterviewPage() {
     const res = await startSession(token, userName);
     if (res.ok) {
       setFolder(res.folder);
+      // Use server-provided sanitized username so client and server agree
+      if (res.sanitizedUserName) setUserName(res.sanitizedUserName);
       setSessionStarted(true);
     } else {
       alert("Failed to start session");
