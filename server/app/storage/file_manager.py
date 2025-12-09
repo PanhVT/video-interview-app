@@ -1,7 +1,9 @@
 import os, json, datetime
 
-# safe uploads base path (relative to project root)
-BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'uploads'))
+# safe uploads base path (store uploads inside the `server/` folder)
+# From this file (`server/app/storage/file_manager.py`) the path to
+# `server/uploads` is two levels up + 'uploads'.
+BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'uploads'))
 
 def ensure_session_folder(folder):
     path = os.path.join(BASE, folder)
