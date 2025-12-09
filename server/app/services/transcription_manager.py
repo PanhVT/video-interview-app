@@ -74,9 +74,9 @@ def _get_transcribe_signature() -> Dict[str, bool]:
 
 async def transcribe_single_video(
     video_bytes: bytes,
-    language: str = "vi",
+    language: str = "en",
     translate_to_english: bool = False,
-    model_size: str = "small"
+    model_size: str = "medium"
 ) -> Dict:
     """
     Transcribe a single video
@@ -135,9 +135,9 @@ async def transcribe_single_video(
 
 async def transcribe_batch_videos(
     video_files: list[Tuple[int, str]],
-    language: str = "vi",
+    language: str = "en",
     translate_to_english: bool = False,
-    model_size: str = "small",
+    model_size: str = "medium",
     on_progress=None
 ) -> Dict[int, Dict]:
     """
