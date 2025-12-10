@@ -12,7 +12,7 @@ An application that records interview answers **one question at a time** (maximu
 ## 2. System Architecture Overview
 This is a client–server model over HTTP.
 ```bash
-Browser (Client) -REST→ FastAPI server
+Browser (Client) ──REST──> FastAPI server
     ├── getUserMedia + MediaRecorder (video/webm)
     ├── records Q1 → /api/upload-one (multipart/form-data)
     └── Finish → /api/session/finish
@@ -30,19 +30,19 @@ Storage: server/uploads/<DD_MM_YYYY_HH_mm_username>/
 ## 3. Project Structure
 ```bash
 video-interview-app-main/
-├── client/                     # Frontend (React + Vite)
+├── client/                      # Frontend (React + Vite)
 │   └── src/
-│  ├── app/                     # Router
-│       ├── features/           # login, preview, interview, finish
-│       ├── shared/api/         # call REST endpoints
-│       └── shared/hooks/       # useRecorder (MediaRecorder)
+│        ├── app/                # Router
+│        ├── features/           # login, preview, interview, finish
+│        ├── shared/api/         # call REST endpoints
+│        └── shared/hooks/       # useRecorder (MediaRecorder)
 │
-├── server/                     # Backend FastAPI
-│   ├── app/main.py             # register router
-│   ├── app/api/                # verify_token, session_start, upload_one, ...
-│   ├── app/storage/            # file_manager, metadata_manager
-│   ├── app/services/           # transcription (Whisper local)
-│   └── uploads/                # location to save interview sessions (created at runtime)
+├── server/                      # Backend FastAPI
+│   ├── app/main.py              # register router
+│   ├── app/api/                 # verify_token, session_start, upload_one, ...
+│   ├── app/storage/             # file_manager, metadata_manager
+│   ├── app/services/            # transcription (Whisper local)
+│   └── uploads/                 # location to save interview sessions (created at runtime)
 └── README.md
 ```
 
@@ -69,27 +69,27 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 2. **Preview**: Request camera/microphone permissions; show instructions for handling device-permission errors.
 3. **Instructions**: Display the 5 questions, the 2-minute limit per question, and how to stop & upload each recording.
 4. **Interview**:
-   - Press Start to record (MediaRecorder `video/webm;codecs=vp8,opus`), start a 120-second countdown, and automatically stop & upload when time is up.
-   - When Stop is pressed, the client sends a multipart request to `/api/upload-one` with the token, folder, questionIndex, and video.
-   - The next question is unlocked only after a successful upload; a Reload Upload button is available to resend the last blob if needed.
-   - Each question allows **one retake** after a successful upload.
+   * Press Start to record (MediaRecorder `video/webm;codecs=vp8,opus`), start a 120-second countdown, and automatically stop & upload when time is up.
+   * When Stop is pressed, the client sends a multipart request to `/api/upload-one` with the token, folder, questionIndex, and video.
+   * The next question is unlocked only after a successful upload; a Reload Upload button is available to resend the last blob if needed.
+   * Each question allows **one retake** after a successful upload.
 5. **Finish**: After all questions have been uploaded, call `/api/session/finish` → redirect to the thank-you page and display the session folder name.
 
 ## 6. API Contract
 - `POST /api/verify-token`  
-  Body: `{ "token": "12345" }` → `{ ok: true }` or 401.
+  Body: `{"token": "12345"}` → `{ok: true}` or 401.
 
 - `POST /api/session/start`  
-  Body: `{ token, userName }`  
-  Return: `{ ok, folder, sanitizedUserName }`, creates the folder in `server/uploads/`.
+  Body: `{token, userName}`  
+  Return: `{ok, folder, sanitizedUserName}`, creates the folder in `server/uploads/`.
 
 - `POST /api/upload-one` (multipart/form-data)  
   Fields: `token`, `folder`, `questionIndex`, `video` (file).  
-  Return: `{ ok: true, savedAs: "Q<index>.webm" }`, update `meta.json`.
+  Return: `{ok: true, savedAs: "Q<index>.webm"}`, update `meta.json`.
 
 - `POST /api/session/finish`  
-  Body: `{ token, folder, questionsCount }`  
-  Return: `{ ok: true, transcribing: <bool>, engine? }`, starts the STT process if available.
+  Body: `{token, folder, questionsCount}`  
+  Return: `{ok: true, transcribing: <bool>, engine?}`, starts the STT process if available.
 
 - `GET /api/transcription-status/{folder}`: checks the STT progress.
 - `GET /api/transcripts`, `/api/transcripts/{folder}`, `/api/transcripts/{folder}/{question}`, `/api/transcripts/{folder}/export?format=txt|csv|json`.
