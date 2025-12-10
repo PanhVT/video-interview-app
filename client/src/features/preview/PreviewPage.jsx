@@ -25,7 +25,19 @@ export default function PreviewPage() {
         });
         if (videoRef.current) videoRef.current.srcObject = stream;
       } catch (e) {
-        setError("Permission denied or no devices");
+        // Provide user-friendly guidance based on error type
+        console.error('getUserMedia error:', e);
+        let msg = 'Unable to access camera/microphone.';
+        if (e.name === 'NotAllowedError' || e.name === 'SecurityError') {
+          msg = 'Permission denied. Allow camera and microphone in your browser settings (also ensure page served via HTTPS if deployed publicly).';
+        } else if (e.name === 'NotFoundError' || e.name === 'OverconstrainedError') {
+          msg = 'No camera or microphone found. Check device connections or choose another device.';
+        } else if (e.name === 'NotReadableError') {
+          msg = 'Device busy or not readable. Close other apps using the camera/mic and try again.';
+        } else if (e.message) {
+          msg = e.message;
+        }
+        setError(msg);
       }
     }
     startPreview();

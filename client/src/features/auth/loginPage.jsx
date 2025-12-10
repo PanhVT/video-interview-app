@@ -26,9 +26,10 @@ export default function LoginPage() {
         setUserName(nameInput);
         nav("/preview");
       } else {
-        // Hiển thị error message chi tiết hơn
+        // Show detailed error + guidance when available
         const errorMsg = res.error || res.detail || "Token không hợp lệ";
-        setError(errorMsg);
+        const guidance = res.guidance ? ` — ${res.guidance}` : "";
+        setError(errorMsg + guidance);
       }
     } catch (e) {
       console.error("Login error:", e);

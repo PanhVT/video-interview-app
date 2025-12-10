@@ -59,7 +59,18 @@ export default function InterviewPage() {
         if (videoRef.current) videoRef.current.srcObject = streamHandle;
       } catch (err) {
         console.error(err);
-        alert("Unable to access camera/microphone");
+        let msg = 'Unable to access camera/microphone.';
+        if (err.name === 'NotAllowedError' || err.name === 'SecurityError') {
+          msg = 'Permission denied. Allow camera and microphone in your browser settings. If deployed publicly, the page must use HTTPS.';
+        } else if (err.name === 'NotFoundError' || err.name === 'OverconstrainedError') {
+          msg = 'No camera/microphone found. Check device connections or choose another device.';
+        } else if (err.name === 'NotReadableError') {
+          msg = 'Device busy. Close other apps that might be using the camera/microphone and try again.';
+        } else if (err.message) {
+          msg = err.message;
+        }
+        setMessage(msg);
+        setStatus('idle');
       }
     }
     loadStream();
@@ -113,9 +124,11 @@ export default function InterviewPage() {
     });
 
     if (!response.ok) {
-      setUploadState("error");
-      setMessage("Upload failed. Please retry.");
-      setStatus("idle");
+      setUploadState('error');
+      const errMsg = response.error || 'Upload failed.';
+      const guidance = response.guidance ? ` ${response.guidance}` : '';
+      setMessage(`${errMsg}${guidance}`);
+      setStatus('idle');
       return;
     }
 
@@ -166,7 +179,8 @@ export default function InterviewPage() {
       if (res.sanitizedUserName) setUserName(res.sanitizedUserName);
       setSessionStarted(true);
     } else {
-      alert("Failed to start session");
+      const guidance = res.guidance ? ` ${res.guidance}` : '';
+      setMessage(`Failed to start session: ${res.error || 'Unknown error.'}${guidance}`);
     }
   }
 
@@ -184,8 +198,10 @@ export default function InterviewPage() {
       blob: lastBlobRef.current,
     });
     if (!res.ok) {
-      setUploadState("error");
-      setMessage("Upload failed again. Please retry.");
+      setUploadState('error');
+      const errMsg = res.error || 'Upload failed.';
+      const guidance = res.guidance ? ` ${res.guidance}` : '';
+      setMessage(`${errMsg}${guidance}`);
       return;
     }
     setUploadState("success");
@@ -220,8 +236,13 @@ export default function InterviewPage() {
     const allRecorded = completedFlags.every(Boolean) && questions.length > 0;
     if (!allRecorded) return;
     clearTimer();
-    await finishSession(token, folder, questions.length);
-    nav("/finish");
+    const res = await finishSession(token, folder, questions.length);
+    if (!res.ok) {
+      const guidance = res.guidance ? ` ${res.guidance}` : '';
+      setMessage(`Failed to finish session: ${res.error || 'Unknown error.'}${guidance}`);
+      return;
+    }
+    nav('/finish');
   };
 
   const formattedTime = `${String(Math.floor(timeLeft / 60)).padStart(
